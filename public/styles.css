@@ -29,18 +29,17 @@ button#cookie {
 /* NUMBER OF CLICKS */
 
 div.numberOfClicks {
-	width: 100px;
-	height: 100px;
+    padding: 10px;
 	border: 2px inset;
 	text-align: center;
     background-color: rgba(255, 0, 0, 0.5);
+    font-size: x-large;
 }
 
 /* COOKIES PER CLICK */
 
 div#cookiesPerClick {
-    width: 100px;
-	height: 100px;
+    padding: 10px;
 	border: 2px inset;
 	text-align: center;
 }
@@ -48,8 +47,7 @@ div#cookiesPerClick {
 /* COOKIES PER CLICK UPGRADES */
 
 div.upgrade {
-	width: 200px;
-	height: 100px;
+	padding: 10px;
 	text-align: center;
 	border: 2px outset;
 	cursor: pointer;
@@ -59,8 +57,7 @@ div.upgrade {
 /* COOKIES PER SECOND UPGRADES */
 
 div.autoClickUpgrade {
-    width: 200px;
-	height: 100px;
+    padding: 10px;
 	text-align: center;
 	border: 2px outset;
 	cursor: pointer;
@@ -68,8 +65,7 @@ div.autoClickUpgrade {
 }
 
 div#cookiesPerSecond {
-    width: 100px;
-	height: 100px;
+    padding: 10px;
 	text-align: center;
 	border: 2px inset;
 }

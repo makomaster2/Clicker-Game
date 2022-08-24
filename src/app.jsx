@@ -8,9 +8,8 @@ const App = () => {
 	const [clickUpgradeOneCost, setClickUpgradeOneCost] = useState(10);
 
 	// AUTOCLICK UPGRADE #1
-	const [cookiesPerSecond, setCookiesPerSecond] = useState(1);
-	const [autoClickUpgradeCost, setAutoClickUpgradeCost] = useState(100);
-	const [autoClickEnabled, setAutoClickEnabled] = useState(false);
+	const [cookiesPerSecond, setCookiesPerSecond] = useState(0);
+	const [autoClickUpgradeCost, setAutoClickUpgradeCost] = useState(10);
 
 	// PER CLICK UPGRADE #1
 	function upgradeOne() {
@@ -22,17 +21,23 @@ const App = () => {
 	}
 
 	// AUTOCLICKER #1
-	console.log('component rendered');
+
+	function countCheck() {
+		if (count >= autoClickUpgradeCost) {
+			setCookiesPerSecond(cookiesPerSecond + 1);
+			setCount(count => count - autoClickUpgradeCost);
+			setAutoClickUpgradeCost(autoClickUpgradeCost * 2);
+		}
+	}
+
 	useEffect(() => {
 		let interval;
-		if (autoClickEnabled) {
-			interval = setInterval(() => {
-				setCount(count + 1);
-				// setAutoClickEnabled(false);
-			}, 1000);
-		}
+		interval = setInterval(() => {
+			setCount(count => count + cookiesPerSecond);
+		}, 1000);
+
 		return () => clearInterval(interval);
-	}, [autoClickEnabled]);
+	}, [cookiesPerSecond]);
 
 	return (
 		<div id='mainContainer'>
@@ -54,15 +59,12 @@ const App = () => {
 					COOKIE
 				</button>
 				<div className='upgrade' onClick={upgradeOne}>
-					UPGRADE #1
+					+1 Cookie Per Click
 					<br />
 					Cost: {clickUpgradeOneCost} COOKIES
 				</div>
-				<div
-					className='autoClickUpgrade'
-					onClick={() => setAutoClickEnabled(true)}
-				>
-					AutoClick Upgrade #1
+				<div className='autoClickUpgrade' onClick={countCheck}>
+					+1 Autoclick
 					<br />
 					Cost: {autoClickUpgradeCost}
 				</div>

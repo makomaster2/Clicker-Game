@@ -8,9 +8,9 @@ const App = () => {
 	const [clickUpgradeOneCost, setClickUpgradeOneCost] = useState(10);
 
 	// AUTOCLICK UPGRADE #1
-	// const [cookiesPerSecond, setCookiesPerSecond] = useState(1);
-	// const [autoClickUpgradeCost, setAutoClickUpgradeCost] = useState(100);
-	// const [autoClickEnabled, setAutoClickEnabled] = useState(false);
+	const [cookiesPerSecond, setCookiesPerSecond] = useState(1);
+	const [autoClickUpgradeCost, setAutoClickUpgradeCost] = useState(100);
+	const [autoClickEnabled, setAutoClickEnabled] = useState(false);
 
 	// PER CLICK UPGRADE #1
 	function upgradeOne() {
@@ -22,50 +22,50 @@ const App = () => {
 	}
 
 	// AUTOCLICKER #1
-	// console.log('component rendered');
-	// useEffect(() => {
-	// 	let interval;
-	// 	if (autoClickEnabled) {
-	// 		interval = setInterval(() => {
-	// 			setCount(count + 1);
-	// 			// setAutoClickEnabled(false);
-	// 		}, 1000);
-	// 	}
-	// 	return () => clearInterval(interval);
-	// }, [autoClickEnabled]);
+	console.log('component rendered');
+	useEffect(() => {
+		let interval;
+		if (autoClickEnabled) {
+			interval = setInterval(() => {
+				setCount(count + 1);
+				// setAutoClickEnabled(false);
+			}, 1000);
+		}
+		return () => clearInterval(interval);
+	}, [autoClickEnabled]);
 
 	return (
 		<div id='mainContainer'>
 			<div className='container'>
-				{/* <div id='cookiesPerSecond'>
+				<div id='cookiesPerSecond'>
 					COOKIES PER SECOND:
 					<br /> {cookiesPerSecond}
-				</div> */}
+				</div>
 				<div id='cookiesPerClick'>
 					COOKIES PER CLICK:
 					<br />
 					{cookiesPerClick}
 				</div>
 				<div className='numberOfClicks'>COOKIES: {count}</div>
-				<div
+				<button
 					id='cookie'
 					onClick={() => setCount(count + cookiesPerClick)}
 				>
 					COOKIE
-				</div>
+				</button>
 				<div className='upgrade' onClick={upgradeOne}>
 					UPGRADE #1
 					<br />
 					Cost: {clickUpgradeOneCost} COOKIES
 				</div>
-				{/* <div
+				<div
 					className='autoClickUpgrade'
 					onClick={() => setAutoClickEnabled(true)}
 				>
 					AutoClick Upgrade #1
 					<br />
 					Cost: {autoClickUpgradeCost}
-				</div> */}
+				</div>
 			</div>
 		</div>
 	);

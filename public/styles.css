@@ -15,13 +15,15 @@ div#mainContainer {
 
 /* COOKIE */
 
-div#cookie {
-	border: 5px outset;
-	width: 100px;
-	height: 120px;
-	text-align: center;
+button#cookie {
+	border: 5px solid tan;
+    border-radius: 30%;
+	width: 120px;
+	height: 100px;
 	cursor: pointer;
     font: 16pt bolder;
+    background-color: brown;
+    color: white;
 }
 
 /* NUMBER OF CLICKS */
